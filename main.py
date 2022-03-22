@@ -15,18 +15,16 @@ HEALTH_FONT = pygame.font.SysFont("comicsans", 40)
 
 border = pygame.Rect(WIDTH//2-5, 0, 10, HEIGHT)
 
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-MAX_BULLETS = 3
-BULLET_VEL = 7
-YELLOW = (255, 255, 0)
+BULLET_VEL =5
+MAX_BULLETS =3
+
 
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
 
 def draw_winner(text):
-    draw_text = WINNER_FONT.render(text, 1, WHITE)
+    draw_text = WINNER_FONT.render(text, 1, 'WHITE')
     WIN.blit(draw_text, (WIDTH//2-draw_text.get_width()//2,
              HEIGHT//2 - draw_text.get_height()//2))
     pygame.display.update()
@@ -84,11 +82,11 @@ red_image_transformed = pygame.transform.rotate(pygame.transform.scale(
 
 def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
     WIN.blit(background, (0, 0))
-    pygame.draw.rect(WIN, BLACK, border)
+    pygame.draw.rect(WIN, 'BLACK', border)
     yellow_health_text = HEALTH_FONT.render(
-        "Health: " + str(yellow_health), 1, WHITE)
+        "Health: " + str(yellow_health), 1, 'WHITE')
     red_health_text = HEALTH_FONT.render(
-        "Health: " + str(red_health), 1, WHITE)
+        "Health: " + str(red_health), 1, 'WHITE')
     WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 5))
     WIN.blit(yellow_health_text, (10, 5))
 
@@ -98,7 +96,7 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)
     for bullet in yellow_bullets:
-        pygame.draw.rect(WIN, YELLOW, bullet)
+        pygame.draw.rect(WIN, 'YELLOW', bullet)
 
     pygame.display.update()
 
