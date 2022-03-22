@@ -2,14 +2,14 @@ import os
 import pygame
 pygame.font.init()
 
-pygame.display.set_caption("Space game")  # NAME OF APP
+pygame.display.set_caption("Space game")  
 
 FPS = 100
 VEL = 5
 RED = (255, 0, 0)
 MAX_BULLETS = 3
 WIDTH, HEIGHT = 900, 500
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # SHOWING UP THE WINDOW
+WIN = pygame.display.set_mode((WIDTH, HEIGHT)) 
 WINNER_FONT = pygame.font.SysFont("comicsans", 80)
 HEALTH_FONT = pygame.font.SysFont("comicsans", 40)
 
@@ -32,16 +32,16 @@ def draw_winner(text):
 
 
 def movement_red(keys_pressed, red):
-    if keys_pressed[pygame.K_UP]:  # UP
+    if keys_pressed[pygame.K_UP]: 
         if red.y-VEL > 0:
             red.y -= VEL
-    if keys_pressed[pygame.K_DOWN]:  # DOWN
+    if keys_pressed[pygame.K_DOWN]: 
         if red.y+player_height+VEL < HEIGHT:
             red.y += VEL
-    if keys_pressed[pygame.K_RIGHT]:  # RIGHT
+    if keys_pressed[pygame.K_RIGHT]: 
         if red.x + VEL + player_width < WIDTH+20:
             red.x += VEL
-    if keys_pressed[pygame.K_LEFT]:  # LEFT
+    if keys_pressed[pygame.K_LEFT]:  
         if red.x - VEL > WIDTH//2:
             red.x -= VEL
 
@@ -50,13 +50,13 @@ def movement_yellow(keys_pressed, yellow):
     if keys_pressed[pygame.K_w]:
         if yellow.y - VEL > 0:
             yellow.y -= VEL
-    if keys_pressed[pygame.K_s]:  # DOWN
+    if keys_pressed[pygame.K_s]:  
         if yellow.y + VEL + player_height < HEIGHT:
             yellow.y += VEL
-    if keys_pressed[pygame.K_a]:  # LEFT
+    if keys_pressed[pygame.K_a]: 
         if yellow.x - VEL > 0:
             yellow.x -= VEL
-    if keys_pressed[pygame.K_d]:  # RIGHT
+    if keys_pressed[pygame.K_d]: 
         if yellow.x+VEL+player_width < WIDTH/2+10:
             yellow.x += VEL
 
@@ -65,14 +65,13 @@ player_width = 55
 player_height = 40
 
 background = pygame.transform.scale(pygame.image.load(os.path.join(
-    'assets', 'space.png')), (WIDTH, HEIGHT))  # loading a background image
+    'assets', 'space.png')), (WIDTH, HEIGHT))  
 
-yellow_image = pygame.image.load(  # loading a yellow ship image
+yellow_image = pygame.image.load( 
     os.path.join('assets', 'spaceship_yellow.png'))
 
 red_image = pygame.image.load(os
-                              .path.join('assets', 'spaceship_red.png'))                          # red one
-
+                              .path.join('assets', 'spaceship_red.png'))                         
 yellow_image_transformed = pygame.transform.rotate(pygame.transform.scale(
     yellow_image, (player_width, player_height)), 90)
 
